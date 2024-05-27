@@ -1,0 +1,641 @@
+zabbix_export:
+  version: '6.4'
+  template_groups:
+    - uuid: a571c0d144b14fd4a87a9d9b2aa9fcd6
+      name: Templates/Applications
+  templates:
+    - uuid: be3cbf9058ca4f828d122a07ec3ff04f
+      template: 'Couchdb 3 enhanced'
+      name: 'Couchdb 3 enhanced'
+      groups:
+        - name: Templates/Applications
+      items:
+        - uuid: 70eac68634034749af2496304f3fea2d
+          name: 'CouchDB: couchdb.auth_cache_hits'
+          type: DEPENDENT
+          key: couchdb.auth_cache_hits
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.auth_cache_hits.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 57e2a3cfb11247dbafeabd79ded06244
+          name: 'CouchDB: couchdb.auth_cache_misses'
+          type: DEPENDENT
+          key: couchdb.auth_cache_misses
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.auth_cache_misses.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 529b9274fd6d4bd9a9c955c16ce5f676
+          name: 'CouchDB: couchdb.avg_doc_opened'
+          key: couchdb.avg_doc_opened
+          trends: 90d
+          value_type: FLOAT
+        - uuid: 3b6c577a30564f6c8abe4e2f99b87d36
+          name: 'CouchDB: couchdb.database_reads'
+          type: DEPENDENT
+          key: couchdb.database_reads
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.database_reads.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 8f61eccb411340128b3977baa7156c4b
+          name: 'CouchDB: couchdb.database_writes'
+          type: DEPENDENT
+          key: couchdb.database_writes
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.database_writes.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 34bb6c5df506498597849115ad00b7a5
+          name: 'Couchdb Get Stats'
+          key: couchdb.get.stats
+          trends: '0'
+          value_type: TEXT
+        - uuid: 84a0c10c08a8489ebc85b913c6b94f23
+          name: 'CouchDB: httpd.aborted_requests'
+          type: DEPENDENT
+          key: couchdb.httpd.aborted_requests
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.httpd.aborted_requests.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: add92314cbfe458f91ef7384aca0f0de
+          name: 'CouchDB: httpd.bulk_requests'
+          type: DEPENDENT
+          key: couchdb.httpd.bulk_requests
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.httpd.bulk_requests.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 4448d9ea96904155aa32e0c6f0318211
+          name: 'CouchDB: httpd.clients_requesting_changes'
+          type: DEPENDENT
+          key: couchdb.httpd.clients_requesting_changes
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.httpd.clients_requesting_changes.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 29a68b4c38c0458f9114ed09008e53fe
+          name: 'CouchDB: httpd.requests'
+          type: DEPENDENT
+          key: couchdb.httpd.requests
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.httpd.requests.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 667c12b2f5d84018bebc96f14a10bc7f
+          name: 'CouchDB: httpd.temporary_view_reads'
+          type: DEPENDENT
+          key: couchdb.httpd.temporary_view_reads
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.httpd.temporary_view_reads.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 6da1e6662c5e4f9ea5bf27fb4122b898
+          name: 'CouchDB: httpd.view_reads'
+          type: DEPENDENT
+          key: couchdb.httpd.view_reads
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.httpd.view_reads.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: f5054cc47f24471082ef9aee04398d85
+          name: 'CouchDB: httpd_request_methods.COPY'
+          type: DEPENDENT
+          key: couchdb.httpd_request_methods.COPY
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.httpd_request_methods.COPY.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: adba20bdf8f145ac94a2965cc60227be
+          name: 'CouchDB: httpd_request_methods.DELETE'
+          type: DEPENDENT
+          key: couchdb.httpd_request_methods.DELETE
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.httpd_request_methods.DELETE.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: b5a3e08d18424ac78dc1442c2d244fc4
+          name: 'CouchDB: httpd_request_methods.GET'
+          type: DEPENDENT
+          key: couchdb.httpd_request_methods.GET
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.httpd_request_methods.GET.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: e2fe95d00a8141f8b7601f6c915b10ee
+          name: 'CouchDB: httpd_request_methods.POST'
+          type: DEPENDENT
+          key: couchdb.httpd_request_methods.POST
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.httpd_request_methods.POST.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: f058aab302e04a2f9935b11c1c96da7a
+          name: 'CouchDB: httpd_request_methods.PUT'
+          type: DEPENDENT
+          key: couchdb.httpd_request_methods.PUT
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.httpd_request_methods.PUT.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 71f64adcc2174e7a8b3e87e1913da27a
+          name: 'CouchDB: httpd_status_codes.200'
+          type: DEPENDENT
+          key: couchdb.httpd_status_codes.200
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.httpd_status_codes.200.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 63420753046e4683a452bf85f59fdf3d
+          name: 'CouchDB: httpd_status_codes.201'
+          type: DEPENDENT
+          key: couchdb.httpd_status_codes.201
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.httpd_status_codes.201.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 7983176e427247d88fb12b9e2bf79b2e
+          name: 'CouchDB: httpd_status_codes.202'
+          type: DEPENDENT
+          key: couchdb.httpd_status_codes.202
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.httpd_status_codes.202.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: c517929b100947d09f7c7670694422f2
+          name: 'CouchDB: httpd_status_codes.301'
+          type: DEPENDENT
+          key: couchdb.httpd_status_codes.301
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.httpd_status_codes.301.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: ce15c84c32924a9594739aa09a2c99f7
+          name: 'CouchDB: httpd_status_codes.400'
+          type: DEPENDENT
+          key: couchdb.httpd_status_codes.400
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.httpd_status_codes.400.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 9f32694111594519a88123f9714524dc
+          name: 'CouchDB: httpd_status_codes.401'
+          type: DEPENDENT
+          key: couchdb.httpd_status_codes.401
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.httpd_status_codes.401.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 1269a7ff56524ce68f77c4b8c665ba36
+          name: 'CouchDB: httpd_status_codes.403'
+          type: DEPENDENT
+          key: couchdb.httpd_status_codes.403
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.httpd_status_codes.403.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 173d86c8ec7b4dd9b8a9d8ef095f6e3d
+          name: 'CouchDB: httpd_status_codes.404'
+          type: DEPENDENT
+          key: couchdb.httpd_status_codes.404
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.httpd_status_codes.404.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 00757d93ae504d75801c55e037e65eac
+          name: 'CouchDB: httpd_status_codes.405'
+          type: DEPENDENT
+          key: couchdb.httpd_status_codes.405
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.httpd_status_codes.405.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 2bcab74896494c4e8b95758c2609c7be
+          name: 'CouchDB: httpd_status_codes.409'
+          type: DEPENDENT
+          key: couchdb.httpd_status_codes.409
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.httpd_status_codes.409.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: bea3ea8203864e5abc9a791aa4f28e51
+          name: 'CouchDB: httpd_status_codes.500'
+          type: DEPENDENT
+          key: couchdb.httpd_status_codes.500
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.httpd_status_codes.500.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 6e62f7eba0564da7b49590f7991b8c85
+          name: 'CouchDB: couchdb.max_doc_opened'
+          key: couchdb.max_doc_opened
+          trends: 90d
+        - uuid: db1f68daf1a54c85aedd6dd27399a068
+          name: 'CouchDB: couchdb.min_doc_opened'
+          key: couchdb.min_doc_opened
+          trends: 90d
+          preprocessing:
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 6743a246276f4e94a19cc668eb0a3850
+          name: 'CouchDB: couchdb.open_databases'
+          type: DEPENDENT
+          key: couchdb.open_databases
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.open_databases.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 3d490f98ecb24c4dab66ca614f8f3662
+          name: 'CouchDB: couchdb.open_os_files'
+          type: DEPENDENT
+          key: couchdb.open_os_files
+          delay: '0'
+          trends: 90d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.open_os_files.value
+            - type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 609cac8acf2f40179b1ddae08f5a7753
+          name: 'CouchDB: couchdb.request_time.value.arithmetic_mean'
+          type: DEPENDENT
+          key: couchdb.request_time.value.arithmetic_mean
+          delay: '0'
+          trends: 90d
+          value_type: FLOAT
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.request_time.value.arithmetic_mean
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 515f806aedf54facab7a88c924d4cc3f
+          name: 'CouchDB: couchdb.request_time.value.geometric_mean'
+          type: DEPENDENT
+          key: couchdb.request_time.value.geometric_mean
+          delay: '0'
+          trends: 90d
+          value_type: FLOAT
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.request_time.value.geometric_mean
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 48ef0d85f0924a90b778107f867c68c1
+          name: 'CouchDB: couchdb.request_time.value.max'
+          type: DEPENDENT
+          key: couchdb.request_time.value.max
+          delay: '0'
+          trends: 90d
+          value_type: FLOAT
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.request_time.value.max
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: ed8b9120c97142a8876eefc6d99ffdf0
+          name: 'CouchDB: couchdb.request_time.value.min'
+          type: DEPENDENT
+          key: couchdb.request_time.value.min
+          delay: '0'
+          trends: 90d
+          value_type: FLOAT
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.couchdb.request_time.value.min
+          master_item:
+            key: couchdb.get.stats
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 10d817ed8b884db98c0b86b5b340c348
+          name: 'CouchDB Memory RSS'
+          key: 'proc.mem[beam.smp,,,,rss]'
+          delay: 30s
+        - uuid: 8838cd0ebdd84856807907b9a570b7cb
+          name: 'CouchDB Memory'
+          key: 'proc.mem[beam.smp]'
+          delay: 30s
+        - uuid: 0e600ab924e94b5eab840a8a7d50357f
+          name: 'CouchJS Memory RSS'
+          key: 'proc.mem[couchjs,,,,rss]'
+          delay: 30s
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: ef961be9a117402494e391c1cc1643db
+          name: 'CouchJS Memory'
+          key: 'proc.mem[couchjs]'
+          delay: 30s
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 8cd1c37166f744f596cc4f3cc793a278
+          name: 'EmpD Process'
+          key: 'proc.num[,,,epmd -daemon]'
+          delay: '30'
+          tags:
+            - tag: Application
+              value: CouchDB
+        - uuid: 15846858aaee4eb0917fb677fb076e52
+          name: 'CouchJS Process'
+          key: 'proc.num[couchjs]'
+          delay: '30'
+          tags:
+            - tag: Application
+              value: CouchDB
