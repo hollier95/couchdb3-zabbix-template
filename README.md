@@ -7,7 +7,7 @@ Monitoring CouchDB with Zabbix can be optimized by minimizing the number of HTTP
 
 Here is an example on how you can explore the CouchDB metrics using the `_stats` endpoint:
 
-```json
+```bash
 curl -s http://USER:PASSWORD@127.0.0.1:5984/_node/couchdb@127.0.0.1/_stats | jq .couchdb.httpd_request_methods.GET
 
 {
